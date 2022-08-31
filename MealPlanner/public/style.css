@@ -1,0 +1,39 @@
+html, body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  font-size: 40px;
+  margin-bottom: -20px;
+}
+
+.logo > h1 {
+  font-family: 'Moon Dance';
+  font-size: 150px;
+  font-style: italic;
+  margin-bottom: -100px;
+  margin-top: -20px;
+  margin-left: 50px;
+  color: #05D5FA;
+  text-shadow: 2px 2px #63666A;
+  font-weight: lighter;
+}
+
+.logo > h3 {
+  margin-left: 50px;
+  font-size: 30px;
+}
+
+
+
+.sidebar {
+  margin-right: 50px;
+}
