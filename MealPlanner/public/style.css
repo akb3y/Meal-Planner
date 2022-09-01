@@ -1,5 +1,7 @@
 html, body {
 font-family: Arial, Helvetica, sans-serif;
+height: 100%;
+margin: 0;
 }
 
 .header {
@@ -38,4 +40,24 @@ font-family: Arial, Helvetica, sans-serif;
 
 .sidebar {
   margin-right: 50px;
+}
+
+.recipes > img {
+margin: 10px;
+padding-left: 45px;
+}
+
+.recipes {
+  text-align: center;
+}
+
+.recipe > img{
+  display: inline;
+}
+
+.menu{
+  display: flex;
+  flex-direction: 'row';
+  justify-content: space-around;
+  height: 600px;
 }
