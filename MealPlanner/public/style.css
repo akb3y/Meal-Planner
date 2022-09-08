@@ -45,14 +45,18 @@ margin: 0;
 .recipes > img {
 margin: 10px;
 padding-left: 45px;
+
 }
 
 .recipes {
   text-align: center;
-}
-
-.recipe > img{
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  overflow-wrap: normal;
+  width: 90%;
+  margin-left: 5%;
 }
 
 .menu{
@@ -60,4 +64,37 @@ padding-left: 45px;
   flex-direction: 'row';
   justify-content: space-around;
   height: 600px;
+}
+
+.gl:hover {
+  color: blue
+}
+
+button:hover {
+  box-shadow: -5px 5px #888888;
+}
+
+button {
+  background-color: rgb(5,213,250, .5);;
+  color: white;
+  border: 1px solid rgb(5,213,250, .5);
+  opacity: .7;
+  height: 40px;
+  width: 150px;
+border-radius: 10px;
+}
+
+.plusLogo {
+  font-weight: bolder;
+  font-size: large;
+}
+
+.addLogo {
+  font-size: large;
+  background-color: white;
+  position: absolute;
+  z-index: 5;
+  margin-left: -35px;
+  margin-top: 10px;
+  border-radius: 50px;
 }

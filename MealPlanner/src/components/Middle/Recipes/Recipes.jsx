@@ -1,12 +1,11 @@
 import React from 'react';
 import Recipe from './Recipe'
 
-function Recipes({recipes}) {
+function Recipes({recipes, add}) {
     return (
        <div className='recipes'>
-        <h2>Recipes</h2>
         {recipes.map((recipe) =>
-        <Recipe key={recipe.id} recipe = {recipe} />
+      <Recipe key={recipe.id} recipe = {recipe} add={add}/>
       )}
       </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './Navbar'
 import Search from './Search'
 
-function Header() {
+function Header({Home, Recipes}) {
   return (
     <div className='header'>
       <div className='logo'>
@@ -10,7 +10,7 @@ function Header() {
     <h3>Meal Prep</h3>
     </div>
     <div className='sidebar'>
-      <Navbar />
+      <Navbar Home={Home} Recipes={Recipes}/>
       <Search />
     </div>
     </div>
