@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './components/header/Header.jsx'
 import Footer from './components/footer/Footer.jsx'
 import Month from './components/Middle/Month.jsx'
@@ -12,9 +12,17 @@ class App extends React.Component {
       page: 'home',
       recipes: [],
       week: {index: 0},
-      menu: [{meals: ['Chicken Pot Pie','Stuffed Cabbage', 'Rice Pilaf']},{meals: ['Turtle Soup','Chicken Gnocchi', 'Pancakes']},{meals: ['Pie', 'Salad', 'Dessert']},{meals:['Banana Bread','Pizza','Tasty']}]
+      menu:
+      [
+        {meals: ['Beef Wellington','Stuffed Cabbage', 'Rice Pilaf','Chicken Pot Pie','Bacon, Egg, and Cheese Eggo Waffle Sandwich','Shakshuka','Margarita Pizza']},
+        {meals: ['Flank Steak with Frito Chilaquiles','Quinoa Risotto With Mushroom', 'Masala Bhindi','Chicken In White Wine','Butter Chicken','Seafood paella']},
+        {meals: ['Poutine', 'Chicken Parm', "Fish 'n' chips", ]},
+        {meals:['Fajitas','Lasagna']}
+      ],
+      indRecipe: {}
     }
     this.getRecipes = this.getRecipes.bind(this)
+    this.getIndRecipe = this.getIndRecipe.bind(this)
     this.onClickRecipes = this.onClickRecipes.bind(this)
     this.onClickHome = this.onClickHome.bind(this)
     this.onClickAddMeal = this.onClickAddMeal.bind(this)
@@ -28,34 +36,42 @@ class App extends React.Component {
     onClickRecipes(){
       this.setState({page: 'recipes'})
     }
+
     onClickHome(){
       this.setState({page: 'home'})
     }
+
     onClickAddMeal(index){
       this.setState({week: index, page:'recipes'})
     }
+
     onClickAdd(title){
       const currentMenu = this.state.menu.slice();
       const currentMeals = currentMenu[this.state.week.index].meals;
 
       if (currentMeals.length === 7) {
-        // throw an error
-        // popup that says something like "This Week is full. Remove a recipe to replace it with a new one."
+          alert('this week is full')
         return;
       }
       currentMeals.push(title);
 
       this.setState({menu: currentMenu, page: 'home' })
     }
-    componentDidMount (){
-      this.getRecipes()
-  }
+
+    getIndRecipe(id){
+      axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=4ce274a0809f4e6e9921a525c97cb387&number=18`)
+      .then(res => this.setState({indRecipe: res.data, page: 'ind'}))
+    }
+  //   componentDidMount (){
+  //     this.getRecipes()
+  // }
   render(){
-    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal}/> : this.state.page === 'recipes' ? <><h3>Recipes</h3><Recipes recipes={this.state.recipes} add={this.onClickAdd}/></> : null
+    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} /> : null
   return (
     <div className='app'>
     <Header Home={this.onClickHome} Recipes ={this.onClickRecipes}/>
     {body}
+    <br />
     <Footer />
     </div>
   );

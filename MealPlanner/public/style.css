@@ -42,12 +42,6 @@ margin: 0;
   margin-right: 50px;
 }
 
-.recipes > img {
-margin: 10px;
-padding-left: 45px;
-
-}
-
 .recipes {
   text-align: center;
   display: flex;
@@ -97,4 +91,37 @@ border-radius: 10px;
   margin-left: -35px;
   margin-top: 10px;
   border-radius: 50px;
+}
+
+.weeks {
+  border: 1px solid grey;
+  width: 300px;
+  text-align: center;
+}
+
+.days {
+  margin-left: 70px;
+  text-align: left;
+}
+
+.footer {
+  text-align: center;
+}
+
+.recipe-img {
+  height: 250px;
+  width: 250px;
+  margin-left: 10px;
+}
+
+.recipe {
+  height: 275px;
+  width: 295px;
+  float: left;
+  margin-bottom: 70px;
+}
+
+.recipe-title {
+  inline-size: 150px;
+overflow: hidden;
 }

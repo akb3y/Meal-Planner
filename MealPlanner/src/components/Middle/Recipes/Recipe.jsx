@@ -5,9 +5,9 @@ function Recipe({recipe, add}){
   return(
     <div className='recipe'>
       <br />
-  <img src={recipe.image} alt="your mom" />
+  <img className="recipe-img" src={recipe.image} alt="this should be a delicious looking meal but it's not" />
   <GrAddCircle className='addLogo' onClick={()=>add(recipe.title)}/>
-  <h4>{recipe.title}</h4>
+  <h4 className='recipe-title'>{recipe.title}</h4>
   </div>
   )
 }
