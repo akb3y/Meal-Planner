@@ -4,7 +4,7 @@ function Day({days, index, getIndRecipe}) {
   let id = 716429
  return (
   <div className='days'>
-    <ul onClick={() => getIndRecipe({id})}>{days}</ul>
+    <ul onClick={() => getIndRecipe(id)}>{days}</ul>
 </div>
  )
 }
