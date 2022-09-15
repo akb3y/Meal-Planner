@@ -62,9 +62,9 @@ class App extends React.Component {
       axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=4ce274a0809f4e6e9921a525c97cb387&number=18`)
       .then(res => this.setState({indRecipe: res.data, page: 'ind'}))
     }
-  //   componentDidMount (){
-  //     this.getRecipes()
-  // }
+    componentDidMount (){
+      this.getRecipes()
+  }
   render(){
     let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} /> : null
   return (

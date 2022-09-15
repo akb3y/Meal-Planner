@@ -100,7 +100,6 @@ border-radius: 10px;
 }
 
 .days {
-  margin-left: 70px;
   text-align: left;
 }
 
@@ -118,10 +117,9 @@ border-radius: 10px;
   height: 275px;
   width: 295px;
   float: left;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .recipe-title {
-  inline-size: 150px;
-overflow: hidden;
+margin-left: 5px;
 }
