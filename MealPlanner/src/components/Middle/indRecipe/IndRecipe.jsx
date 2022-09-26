@@ -1,8 +1,8 @@
 import React from 'react'
 
 class IndRecipe extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state ={
       view: 'description'
     }
@@ -11,7 +11,7 @@ class IndRecipe extends React.Component {
   render(){
     return(
       <div>
-        <h1>Hello World</h1>
+        <img src={this.props.indRecipe.image} alt='yum'/>
       </div>
     )
   }

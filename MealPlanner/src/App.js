@@ -3,8 +3,8 @@ import Header from './components/header/Header.jsx'
 import Footer from './components/footer/Footer.jsx'
 import Month from './components/Middle/Month.jsx'
 import Recipes from './components/Middle/Recipes/Recipes.jsx'
+import IndRecipe from './components/Middle/indRecipe/IndRecipe.jsx'
 import axios from 'axios'
-import indRecipe from './data/indRecipe.jsx'
 
 class App extends React.Component {
   constructor(props){
@@ -20,7 +20,7 @@ class App extends React.Component {
         {meals: ['Poutine', 'Chicken Parm', "Fish 'n' chips", ]},
         {meals:['Fajitas','Lasagna']}
       ],
-      indRecipe: indRecipe
+      indRecipe: {}
     }
     this.getRecipes = this.getRecipes.bind(this)
     this.getIndRecipe = this.getIndRecipe.bind(this)
@@ -60,18 +60,18 @@ class App extends React.Component {
     }
 
     getIndRecipe(id){
-      // axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_key}`)
-      // .then(res =>
+      axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_key}`)
+      .then(res =>
         this.setState({
-          // indRecipe: res.data,
+          indRecipe: res.data,
           page: 'ind'})
-        // )
+        )
     }
   //   componentDidMount (){
   //     this.getRecipes()
   // }
   render(){
-    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} /> : null
+    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} /> :this.state.page === 'ind' ? <IndRecipe indRecipe={this.state.indRecipe}/> : null
   return (
     <div className='app'>
     <Header Home={this.onClickHome} Recipes ={this.onClickRecipes}/>
