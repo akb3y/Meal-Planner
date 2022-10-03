@@ -67,11 +67,11 @@ class App extends React.Component {
           page: 'ind'})
         )
     }
-  //   componentDidMount (){
-  //     this.getRecipes()
-  // }
+    componentDidMount (){
+      this.getRecipes()
+  }
   render(){
-    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} /> :this.state.page === 'ind' ? <IndRecipe indRecipe={this.state.indRecipe}/> : null
+    let body = this.state.page === 'home' ? <Month menu={this.state.menu} addMeal={this.onClickAddMeal} getIndRecipe={this.getIndRecipe}/> : this.state.page === 'recipes' ?  <Recipes recipes={this.state.recipes} add={this.onClickAdd} getIndRecipe={this.getIndRecipe}/> :this.state.page === 'ind' ? <IndRecipe indRecipe={this.state.indRecipe}/> : null
   return (
     <div className='app'>
     <Header Home={this.onClickHome} Recipes ={this.onClickRecipes}/>

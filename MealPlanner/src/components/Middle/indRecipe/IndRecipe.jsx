@@ -12,6 +12,7 @@ class IndRecipe extends React.Component {
     return(
       <div>
         <img src={this.props.indRecipe.image} alt='yum'/>
+        <p>{this.props.indRecipe.title}</p>
       </div>
     )
   }
